@@ -17,6 +17,12 @@ public class Todo {
     private Boolean done;
     private Integer priority;
     
+    public Todo(String name, String description, Boolean done, Integer priority) {
+        this.name = name;
+        this.description = description;
+        this.done = done;
+        this.priority = priority;
+    }
     public Long getId() {
         return id;
     }
