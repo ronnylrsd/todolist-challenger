@@ -7,7 +7,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import br.com.ronnyribeiro.todolistchallenger.entity.Todo;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class TodolistChallengerApplicationTests {
 	@Autowired
 	private WebTestClient webTestClient;
@@ -31,6 +31,13 @@ class TodolistChallengerApplicationTests {
 			.jsonPath("$[0].priority").isEqualTo(todo.getPriority());
 	}
 	
+	@Test
 	void testCreateTodoFailure() {
+		webTestClient
+			.post()
+			.uri("/todos")
+			.bodyValue(new Todo("","",false,0))
+			.exchange()
+			.expectStatus().isBadRequest();
 	}
 }
