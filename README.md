@@ -53,7 +53,7 @@ Preparar o seu ambiente Java para projetos na sua máquina.
 ```java
  $ ./mvnw clean package
 ```
-- Exeutar aplicação:
+- Executar aplicação:
 ```java
 $ java -jar target/todolist-0.0.1-SNAPSHOT.jar
 ```
